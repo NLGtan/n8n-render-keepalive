@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check Render Health
+      - name: Ping Render
         run: |
           STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://n8n-nlgtan.onrender.com)
           echo "HTTP Status: $STATUS"
