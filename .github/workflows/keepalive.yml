@@ -2,18 +2,15 @@ name: Keep Render Awake
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
-  workflow_dispatch:
+    - cron: '*/5 * * * *'   # runs every 5 minutes (UTC)
+  workflow_dispatch:        # allows manual run button
 
 jobs:
   ping:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Retry Curl
+      - name: Ping Render Service
         run: |
-          for i in {1..3}; do
-            echo "Attempt $i"
-            curl -I https://n8n-nlgtan.onrender.com && break
-            sleep 10
-          done
+          echo "Pinging Render..."
+          curl -I https://n8n-nlgtan.onrender.com
